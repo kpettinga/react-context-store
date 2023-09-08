@@ -1,8 +1,7 @@
-# React + Vite
+# React Context Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A contrived example of how to implement a global state management system using React's native APIs. Particularly, the [Context API](https://react.dev/reference/react/useContext) and the [`useReducer`](https://react.dev/reference/react/useReducer) hook. 
 
-Currently, two official plugins are available:
+I was inspired to create this repo after completing the Advanced Hooks course in Epic React to show how it is relatively simple to implement global state management without cumbersome tools like Redux. Redux does, however, comes with some advantages such as the ability to plug in middleware, async methods for updating state (thunks), among others. But the basic architecture for global state management does not require a lot of overhead. My intent was to show that here.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Written by [Kirk Pettinga](https://www.kirkpettinga.com), 2023
