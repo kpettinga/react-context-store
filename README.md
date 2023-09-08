@@ -16,9 +16,7 @@ The context provider comes with the option to log your current state whenever st
 
 *(Shoutout to [@Zaelot-Inc](https://github.com/Zaelot-Inc)'s [use-reducer-logger](https://github.com/Zaelot-Inc/use-reducer-logger) package for helping me wrap my head around how this would work.)*
 
----
-
-#### Undo/Redo with state history 
+#### `Undo/Redo with state history`
 
 The ability to cycle through state history and add to history with every update.
 
@@ -31,8 +29,6 @@ Provides access to the global store and a dispatch function. Optionally, you can
 ```js
 const [user, dispatch] = useStore( store => store.user )
 ```
-
----
 
 #### `{ login, logout } = useAuth()`
 
