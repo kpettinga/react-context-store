@@ -3,7 +3,7 @@ import { StoreContext, initialState, storeReducer } from "./store";
 import PropTypes from 'prop-types'
 
 // Logger middleware
-// https://github.com/Zaelot-Inc/use-reducer-logger
+// Thanks to https://github.com/Zaelot-Inc/use-reducer-logger
 const logger = reducer => (state, action) => {
   const next = reducer(state, action)
   console.group("Dispatched: ", action);

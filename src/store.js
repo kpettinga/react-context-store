@@ -2,37 +2,43 @@ import { createContext } from "react";
 
 export const StoreContext = createContext();
 
+export const initialHistory = {
+    past: [],
+    future: []
+}
+
 export const initialState = {
     count: 0,
-    user: null
+    user: null,
+    history: initialHistory
 };
-
-let test = 0
 
 // A reducer helps us query and update state in a more semantic and efficient way.
 export const storeReducer = (state, action) => {
-    const { shouldLog } = state;
     const { type } = action;
+
+    const { history, ...newState } = state
+    const past = [...history.past, {...newState}]
 
     switch (type) {
         case "ADD": {
-            state = { ...state, count: state.count + action.amount }
+            newState.count = newState.count + action.amount
             break
         }
         case "REMOVE": {
-            state = { ...state, count: state.count - action.amount }
+            newState.count = newState.count - action.amount
             break
         }
         case "CLEAR": {
-            state = { ...state, count: 0 }
+            newState.count = 0
             break
         }
         case "LOGIN": {
-            state = { ...state, user: action.user }
+            newState.user = action.user
             break
         }
         case "LOGOUT": {
-            state = { ...state, user: null }
+            newState.user = null
             break
         }
         default: {
@@ -40,10 +46,10 @@ export const storeReducer = (state, action) => {
         }
     }
 
-    if ( shouldLog ) {
-        console.log(test++)
-        // console.log('DISPATCHED: ', action, 'NEW STATE: ', state)
+    newState.history = {
+        past,
+        future: history.future
     }
     
-    return state
+    return newState
 }
