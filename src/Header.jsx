@@ -9,19 +9,19 @@ export default function Header() {
 	const auth = useAuth()
 
 	function handleLogin() {
-		// setStatus("pending")
-		// auth.login("kirk", "password", user => {
-		// 	dispatch({ type: "LOGIN", user })
-		// 	setStatus("resolved")
-		// })
+		setStatus("pending")
+		auth.login("kirk", "password", user => {
+			dispatch({ type: "LOGIN", user })
+			setStatus("resolved")
+		})
 	}
 	
 	function handleLogout() {
-		// setStatus("pending")
-		// auth.logout(() => {
-		// 	dispatch({ type: "LOGOUT" })
-		// 	setStatus("idle")
-		// })
+		setStatus("pending")
+		auth.logout(() => {
+			dispatch({ type: "LOGOUT" })
+			setStatus("idle")
+		})
 	}
 
 	return (

@@ -10,15 +10,40 @@ The basic architecture for global state management does not require a third-part
 
 ## Features
 
-**Logger**: Logs your current state to the console whenever state updates. Useful for debugging.
+#### `<StoreProvider shouldLog>`
 
-**Undo/Redo with state history**: The ability to cycle through state history and add to history with every update.
+The context provider comes with the option to log your current state whenever state updates. Useful for debugging.
+
+---
+
+#### Undo/Redo with state history 
+
+The ability to cycle through state history and add to history with every update.
 
 ## Hooks
 
-**`[foo, dispatch] = useStore(state => state.foo)`**: Provides access to state and a dispatch function. 
+#### `[store, dispatch] = useStore()`
 
-**`{login, logout} = useAuth()`**: Easy methods for login and logout
+Provides access to the global store and a dispatch function. Optionally, you can provide a function to the hook to cherry-pick specific values.
+
+```js
+const [user, dispatch] = useStore( store => store.user )
+```
+
+---
+
+#### `{ login, logout } = useAuth()`
+
+Easy methods for login and logout
+
+```js
+login(user, pass, user => {
+    // callback
+})
+logout(() => {
+    // callback
+})
+```
 
 ## It's important to note...
 
