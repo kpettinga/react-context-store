@@ -28,11 +28,19 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   font-size: 100%;
-  line-height: 2;
+  line-height: 1.5;
+}
+
+nav {
+  background: #200;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: white;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 1.5em;
   line-height: 1;
   margin: 0;
 }
@@ -48,8 +56,18 @@ code {
   font-size: 1rem;
 }
 
+p {
+  margin: 1rem 0 0;
+}
+p:first-child {
+  margin-top: 2rem;
+}
+p:last-child {
+  margin-bottom: 2rem;
+}
+
 button, .button {
-  background: #fff;
+  background: rgba(255,255,255,0.8);
   border-radius: 8px;
   border: 1px solid #ddd;
   padding: 0.6em 1.2em;
@@ -71,8 +89,12 @@ button[disabled], .button.disabled {
 }
 
 .App {
-  max-width: 30rem;
-  margin: 25vh auto 0;
+  max-width: 45rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card {
   padding: 3rem;
   border-radius: 1.5rem;
   box-shadow: 0 8px 40px -10px rgba(255,64,0,0.4);

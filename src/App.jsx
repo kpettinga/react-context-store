@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ChickenList from "./ChickenList";
 import ChickenTools from "./ChickenTools";
 import Header from "./Header";
@@ -6,10 +7,12 @@ import StoreProvider from "./StoreProvider";
 function App() {
 	return (
 		<div className="App">
-			<StoreProvider>
+			<StoreProvider shouldLog={true}>
 				<Header />
-				<ChickenTools />
-				<ChickenList style={{ marginTop: "3rem" }} />
+				<div className="card">
+					<ChickenTools />
+					<ChickenList style={{ marginTop: "3rem" }} />
+				</div>
 			</StoreProvider>
 		</div>
 	);

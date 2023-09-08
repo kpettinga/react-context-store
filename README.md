@@ -14,7 +14,11 @@ The basic architecture for global state management does not require a third-part
 
 **Undo/Redo with state history**: The ability to cycle through state history and add to history with every update.
 
-**A useStore hook**: A custom hook that provides access to state and a dispatch function. 
+## Hooks
+
+**`[foo, dispatch] = useStore(state => state.foo)`**: Provides access to state and a dispatch function. 
+
+**`{login, logout} = useAuth()`**: Easy methods for login and logout
 
 ## It's important to note...
 

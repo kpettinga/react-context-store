@@ -4,28 +4,46 @@ export const StoreContext = createContext();
 
 export const initialState = {
     count: 0,
-    user: {
-        name: 'Kirk',
-        age: 37,
-        hobbies: ['running', 'coding', 'beer']
-    }
+    user: null
 };
+
+let test = 0
 
 // A reducer helps us query and update state in a more semantic and efficient way.
 export const storeReducer = (state, action) => {
+    const { shouldLog } = state;
     const { type } = action;
+
     switch (type) {
         case "ADD": {
-            return { ...state, count: state.count + action.amount };
+            state = { ...state, count: state.count + action.amount }
+            break
         }
         case "REMOVE": {
-            return { ...state, count: state.count - action.amount };
+            state = { ...state, count: state.count - action.amount }
+            break
         }
         case "CLEAR": {
-            return { ...state, count: 0 };
+            state = { ...state, count: 0 }
+            break
+        }
+        case "LOGIN": {
+            state = { ...state, user: action.user }
+            break
+        }
+        case "LOGOUT": {
+            state = { ...state, user: null }
+            break
         }
         default: {
             throw new Error("Invalid action type: " + type);
         }
     }
+
+    if ( shouldLog ) {
+        console.log(test++)
+        // console.log('DISPATCHED: ', action, 'NEW STATE: ', state)
+    }
+    
+    return state
 }
