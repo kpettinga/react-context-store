@@ -14,6 +14,8 @@ The basic architecture for global state management does not require a third-part
 
 The context provider comes with the option to log your current state whenever state updates. Useful for debugging.
 
+*(Shoutout to [@Zaelot-Inc](https://github.com/Zaelot-Inc)'s [use-reducer-logger](https://github.com/Zaelot-Inc/use-reducer-logger) package for helping me wrap my head around how this would work.)*
+
 ---
 
 #### Undo/Redo with state history 
