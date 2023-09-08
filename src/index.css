@@ -91,7 +91,7 @@ button[disabled], .button.disabled {
 .App {
   max-width: 45rem;
   width: 100%;
-  margin: 0 auto;
+  margin: 2rem auto 0;
 }
 
 .card {
