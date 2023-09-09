@@ -7,7 +7,14 @@ export const useStore = (callback) => {
 		throw new Error("useStore() must be used within <StoreProvider>");
 	}
 	const [state, dispatch] = context;
-	return [callback ? callback(state) : state, dispatch];
+	return [
+		callback ? callback(state) : state,
+		dispatch,
+		{
+			canUndo: state.past.length > 0,
+			canRedo: state.future.length > 0,
+		}
+	]
 };
 
 export const useAuth = () => {

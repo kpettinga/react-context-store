@@ -3,7 +3,7 @@ import { useStore } from "./hooks";
 
 export default function ChickenTools() {
 	
-	const [count, dispatch] = useStore(store => store.count);
+	const [count, dispatch] = useStore(store => store.present.count);
 	// increment is only relevant to this component, so it stays in local state
 	const [increment, setIncrement] = useState(1);
 

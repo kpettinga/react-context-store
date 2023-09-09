@@ -2,7 +2,7 @@ import Chicken from "./Chicken"
 import { useStore } from "./hooks"
 
 export default function ChickenList(props) {
-	const [count] = useStore(store => store.count)
+	const [count] = useStore(store => store.present.count)
 	return (
 		<div {...props}>
 			{count > 0 ?

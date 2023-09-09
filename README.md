@@ -27,7 +27,7 @@ The ability to cycle through state history and add to history with every update.
 Provides access to the global store and a dispatch function. Optionally, you can provide a function to the hook to cherry-pick specific values.
 
 ```js
-const [user, dispatch] = useStore( store => store.user )
+const [user, dispatch] = useStore( store => store.present.user )
 ```
 
 #### `{ login, logout } = useAuth()`

@@ -3,7 +3,7 @@ import Chicken from "./Chicken";
 import { useAuth, useStore } from "./hooks";
 
 export default function Header() {
-	const [user, dispatch] = useStore((store) => store.user);
+	const [user, dispatch] = useStore((store) => store.present.user);
 	const [status, setStatus] = useState("idle")
 
 	const auth = useAuth()
@@ -33,9 +33,9 @@ export default function Header() {
 				<div style={{marginLeft: 'auto'}}>
 					{ status === "pending" ?
 						<button disabled>...</button>
-						: status === "resolved" ?
+						: status === "resolved" && user ?
 						<span>
-							<strong>Kirk</strong>
+							<strong>{user.name}</strong>
 							{" "}<button onClick={handleLogout}>Logout</button>
 						</span>
 						:
