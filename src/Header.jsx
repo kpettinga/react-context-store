@@ -44,7 +44,7 @@ export default function Header() {
 				</div>
 			</nav>
 			<div>
-				<p>
+				<p style={{marginLeft: '3rem', marginRight: '3rem'}}>
 					{ user && <strong>Hello {user.name},<br/></strong> }
 					This is an example of how to build global state management with <a href="https://react.dev/reference/react/useReducer">reducers</a> and the <a href="https://react.dev/reference/react/useContext">React Context API</a>. Check your console to see the current state after every update.
 				</p>

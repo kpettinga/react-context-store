@@ -14,7 +14,7 @@ function App() {
 					<ChickenTools />
 					<ChickenList style={{ marginTop: "3rem" }} />
 				</div>
-				<History />
+				<History style={{ textAlign: 'center', margin: '1rem' }} />
 			</StoreProvider>
 		</div>
 	);

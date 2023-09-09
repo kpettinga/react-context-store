@@ -1,6 +1,6 @@
 import { useStore } from "./hooks"
 
-export default function History() {
+export default function History(props) {
 
     const [ , dispatch, {canUndo, canRedo}] = useStore()
 
@@ -13,7 +13,7 @@ export default function History() {
 	}
 
     return (
-        <div>
+        <div {...props}>
             <button disabled={!canUndo} onClick={handleUndo}>Undo</button>
             <button disabled={!canRedo} onClick={handleRedo}>Redo</button>
         </div>
