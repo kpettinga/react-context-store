@@ -12,17 +12,3 @@ export const useStore = (callback) => {
 		dispatch
 	]
 };
-
-export const useAuth = () => {
-	function login(user, password, callback) {
-		return fetch("http://httpbin.org/delay/1", { method: "POST", body: JSON.stringify({ user, password }) })
-			.then( response => callback({ name: "Kirk" }, response) )
-	}
-		
-	function logout(callback) {
-		return fetch("http://httpbin.org/delay/1", { method: "POST" })
-			.then( response => callback(response) )
-	}
-
-	return { login, logout }
-};

@@ -1,53 +1,23 @@
-import { useState } from "react";
 import Chicken from "./Chicken";
-import { useAuth, useStore } from "./hooks";
 
 export default function Header() {
-	const [user, dispatch] = useStore((store) => store.present.user);
-	const [status, setStatus] = useState("idle")
-
-	const auth = useAuth()
-
-	function handleLogin() {
-		setStatus("pending")
-		auth.login("kirk", "password", user => {
-			dispatch({ type: "LOGIN", user })
-			setStatus("resolved")
-		})
-	}
-	
-	function handleLogout() {
-		setStatus("pending")
-		auth.logout(() => {
-			dispatch({ type: "LOGOUT" })
-			setStatus("idle")
-		})
-	}
 
 	return (
 		<header>
 			<nav className="flex-row">
 				<h1>
-					<Chicken size={20} />&nbsp;&nbsp;Chicken Store
+					<Chicken size={20} />&nbsp;&nbsp;The Chicken Coop
 				</h1>
-				<div style={{marginLeft: 'auto'}}>
-					{ status === "pending" ?
-						<button disabled>...</button>
-						: status === "resolved" && user ?
-						<span>
-							<strong>{user.name}</strong>
-							{" "}<button onClick={handleLogout}>Logout</button>
-						</span>
-						:
-						<button onClick={handleLogin}>Login</button>
-					}
-				</div>
 			</nav>
-			<div>
-				<p style={{marginLeft: '3rem', marginRight: '3rem'}}>
-					{ user && <strong>Hello {user.name},<br/></strong> }
-					This is an example of how to build global state management with <a href="https://react.dev/reference/react/useReducer">reducers</a> and the <a href="https://react.dev/reference/react/useContext">React Context API</a>. Check your console to see the current state after every update.
+			<div style={{marginLeft: '3rem', marginRight: '3rem'}}>
+				<p>
+					This is an example of how to build <strong>global state management</strong> with <a href="https://react.dev/reference/react/useReducer"><strong>reducers</strong></a> and the <a href="https://react.dev/reference/react/useContext"><strong>React Context API</strong></a>.
 				</p>
+				<p>It features some of the same enhancements you can get with tools like Redux.</p>
+				<ul>
+					<li>A logger which outputs actions and resulting state to the console.</li>
+					<li>State history, enabling Undo/Redo actions.</li>
+				</ul>
 			</div>
 		</header>
 	);

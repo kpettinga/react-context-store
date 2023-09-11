@@ -3,7 +3,6 @@ import ChickenTools from "./ChickenTools";
 import Header from "./Header";
 import History from "./History";
 import StoreProvider from "./StoreProvider";
-import OtherCoop from "./OtherCoop";
 
 function App() {
 
@@ -19,10 +18,11 @@ function App() {
 				<History style={{ textAlign: 'center', margin: '1rem' }} />
 			</StoreProvider>
 
-			<StoreProvider>
-				{/* Separate Providers track SEPARATE states */}
-				<OtherCoop />
-			</StoreProvider>
+			{/* 
+				Note: Separate Providers will track SEPARATE states. 
+				So all components that need access to the same state should be 
+				wrapped in the same StoreProvider component 
+			*/}
 
 		</div>
 	);

@@ -1,41 +1,33 @@
-import { useState } from "react";
 import { useStore } from "./hooks";
 
 export default function ChickenTools() {
 	
 	const [count, dispatch] = useStore(store => store.present.count);
-	// increment is only relevant to this component, so it stays in local state
-	const [increment, setIncrement] = useState(1);
 
 	function handleAdd() {
-		dispatch({ type: "ADD", amount: increment });
+		dispatch({ type: "ADD", amount: 1 });
 	}
 
 	function handleRemove() {
 		if (count < 1) return
-		dispatch({ type: "REMOVE", amount: Math.min(count, increment) });
+		dispatch({ type: "REMOVE", amount: 1 });
 	}
 
-	function handleClear() {
+	function handleReset() {
 		if (count < 1) return
-		dispatch({ type: "CLEAR" });
+		dispatch({ type: "RESET" });
 	}
 
 	return (
 		<div className="flex-row">
-			<button onClick={handleAdd}>Add</button>
-			<input
-				value={increment}
-				min="1"
-				step="1"
-				type="number"
-				onChange={(e) => setIncrement(parseInt(e.target.value))}
-				/>
+			<button onClick={handleAdd}>
+				Add
+			</button>
 			<button disabled={count === 0} onClick={handleRemove}>
 				Remove
 			</button>
-			<button disabled={count === 0} onClick={handleClear} style={{ marginLeft: "auto" }} >
-				Clear
+			<button disabled={count === 0} onClick={handleReset} style={{ marginLeft: "auto" }} >
+				Reset
 			</button>
 		</div>
 	);

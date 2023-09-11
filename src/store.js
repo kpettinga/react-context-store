@@ -18,7 +18,7 @@ export const storeReducer = (state, action) => {
         case "REMOVE": {
             return { ...state, count: state.count - action.amount }
         }
-        case "CLEAR": {
+        case "RESET": {
             return { ...state, count: 0 }
         }
         case "LOGIN": {
