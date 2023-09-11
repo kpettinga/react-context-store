@@ -8,43 +8,37 @@ Often, these tools come with advantages such as custom debuggers and the ability
 
 The basic architecture for global state management does not require a third-party library. My intent is to show that here.
 
-## Features
+## The Store Provider
 
-#### `<StoreProvider shouldLog>`
+The `<StoreProvider>` component should wrap every component you want to have access to global state. It comes with two props:
 
-The context provider comes with the option to log your current state whenever state updates. Useful for debugging.
+```js
+<StoreProvider shouldLog isUndoable >
+```
 
-*(Shoutout to [@Zaelot-Inc](https://github.com/Zaelot-Inc)'s [use-reducer-logger](https://github.com/Zaelot-Inc/use-reducer-logger) package for helping me wrap my head around how this would work.)*
+*See `src/App.jsx`*
 
-#### `Undo/Redo with state history`
+| Prop | Description |
+| --- | --- |
+| **`shouldLog`** | Enables logging actions and resulting state. Useful for debugging. |
+| **`isUndoable`** | Enables state history. State values are wrapped in a `present` object. `past` and `future` arrays store past and future snapshots of state. |
 
-The ability to cycle through state history and add to history with every update.
-
-## Hooks
+## Access store data with a hook
 
 #### `[store, dispatch] = useStore()`
 
 Provides access to the global store and a dispatch function. Optionally, you can provide a function to the hook to cherry-pick specific values.
 
 ```js
+// Grab the whole store object:
+const [store, dispatch] = useStore()
+
+// or get more granular:
 const [user, dispatch] = useStore( store => store.present.user )
-```
-
-#### `{ login, logout } = useAuth()`
-
-Easy methods for login and logout
-
-```js
-login(user, pass, user => {
-    // callback
-})
-logout(() => {
-    // callback
-})
 ```
 
 ## It's important to note...
 
 My example here is completely contrived and I would not actually use Context if this were a real app. It's too simple and can easily be built with local state, composition, and props. 
 
-Written by [Kirk Pettinga](https://www.kirkpettinga.com), 2023
+Brought to you by [Kirk Pettinga](https://www.kirkpettinga.com)
