@@ -9,22 +9,18 @@ export const useStore = (callback) => {
 	const [state, dispatch] = context;
 	return [
 		callback ? callback(state) : state,
-		dispatch,
-		{
-			canUndo: state.past.length > 0,
-			canRedo: state.future.length > 0,
-		}
+		dispatch
 	]
 };
 
 export const useAuth = () => {
 	function login(user, password, callback) {
-		return fetch("http://httpbin.org/delay/2", { method: "POST", body: JSON.stringify({ user, password }) })
+		return fetch("http://httpbin.org/delay/1", { method: "POST", body: JSON.stringify({ user, password }) })
 			.then( response => callback({ name: "Kirk" }, response) )
 	}
 		
 	function logout(callback) {
-		return fetch("http://httpbin.org/delay/2", { method: "POST" })
+		return fetch("http://httpbin.org/delay/1", { method: "POST" })
 			.then( response => callback(response) )
 	}
 

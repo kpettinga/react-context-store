@@ -3,12 +3,14 @@ import ChickenTools from "./ChickenTools";
 import Header from "./Header";
 import History from "./History";
 import StoreProvider from "./StoreProvider";
+import OtherCoop from "./OtherCoop";
 
 function App() {
 
 	return (
 		<div className="App">
-			<StoreProvider shouldLog>
+		
+			<StoreProvider shouldLog isUndoable>
 				<Header />
 				<div className="card">
 					<ChickenTools />
@@ -16,6 +18,12 @@ function App() {
 				</div>
 				<History style={{ textAlign: 'center', margin: '1rem' }} />
 			</StoreProvider>
+
+			<StoreProvider>
+				{/* Separate Providers track SEPARATE states */}
+				<OtherCoop />
+			</StoreProvider>
+
 		</div>
 	);
 }

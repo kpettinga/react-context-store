@@ -2,7 +2,9 @@ import { useStore } from "./hooks"
 
 export default function History(props) {
 
-    const [ , dispatch, {canUndo, canRedo}] = useStore()
+    const [store, dispatch] = useStore()
+    const canUndo = store.past.length > 0
+    const canRedo = store.future.length > 0
 
 	function handleUndo() {
 		dispatch({type: "UNDO"})
